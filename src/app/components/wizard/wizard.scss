@@ -12,8 +12,22 @@
 }
 
 .col-img {
-  background: scroll center url('/assets/background.png');
-  background-size: contain;
   min-height: 100vh;
   background-repeat: no-repeat;
+}
+
+#range_jar_x_icon,
+#range_jar_y_icon{
+  position: absolute;
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: bold;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.control-buttons{
+  width: 150px;
 }

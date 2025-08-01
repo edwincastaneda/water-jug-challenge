@@ -1,60 +1,103 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-12 col-lg-5 d-none d-lg-flex col-img">
-    </div>
-    <div class="col-12 col-lg-7 align-self-center">
+  <div class="row mt-4">
+    <div class="col-12 col-lg-7 align-self-center mx-auto">
       <div class="m-3 m-lg-5">
 
         <div class="mt-4 mb-4">
-          <h1 class="h3 mb-3">Validador y posibles resultados del reto Water Jug</h1>
-          <p class="lead mb-3 text-left">
-            Este validador te permite ingresar las capacidades de dos jarras (Bucket X y Bucket Y) y el volumen deseado (Amount Z). El sistema evaluará si es posible medir exactamente la cantidad Z usando solo las dos jarras y las operaciones de llenado, vaciado y transferencia.
-          </p>
+          <h1 class="h3 mb-3 text-center">Water Jug Game (Solver 🧩)</h1>
         </div>
 
         <ul id="steps-native" class="nav nav-pills justify-content-center mb-4"></ul>
 
-        <form id="wizard" class="my-2 py-2">
-          <section data-step="1. Entrada">
-            <div class="mb-3">
-              <label class="form-label" for="jar-a">Jarra A</label>
-              <input class="form-control" type="number" name="jar_a" value="1" min="1" step="1" required>
-            </div>
-            <div class="mb-3">
-              <label class="form-label" for="jar-b">Jarra B</label>
-              <input class="form-control" type="number" name="jar_b" value="1" min="1" step="1" required>
-            </div>
-            <div class="row">
-              <div class="col-12 text-right">
-                <button class="btn btn-primary" data-next>Siguiente</button>
-              </div>
-            </div>
-          </section>
 
-          <section data-step="2. Medición">
-            <div class="mb-3">
-              <label class="form-label" for="jar-c">Jarra C</label>
-              <input class="form-control" type="number" name="jar_c" value="1" min="1" step="1" required>
-            </div>
+        <form id="wizard" class="my-2 py-2">
+
+
+          <!-- STEP: 1 Introduction -->
+          <section data-step="Instrucciones">
+            <p class="lead mb-3 text-left">
+              This solver allows you to enter the capacities of two jugs (we'll call them Jug X and Jug Y) and the desired volume. The webapp will evaluate whether it's possible to measure exactly the amount Z using only the two jugs and the operations of filling, emptying, and transferring.
+            </p>
             <div class="row">
-              <div class="col-6 text-left">
+              <div class="col-6 d-flex justify-content-start">
                 <button class="btn btn-outline-primary" data-prev>Previous</button>
               </div>
-              <div class="col-6 text-right">
-                <button class="btn btn-primary" type="submit">Calcular Rutas</button>
+              <div class="col-6 d-flex justify-content-end">
+                <button class="btn btn-primary control-buttons" data-next>Start</button>
               </div>
             </div>
           </section>
 
-          <section data-step="3. Rutas">
+
+          <!-- STEP: 2 Jar inputs -->
+          <section data-step="Inputs">
+
+              <div class="row mt-5">
+                <div class="col mb-5 d-flex">
+                  <div class="position-relative m-auto">
+                    <img id="jarX" src="/assets/jar_icon.svg"/>
+                    <span id="range_jar_x_icon">1</span>
+                  </div>
+                </div>
+                <div class="col-12 col-md-8">
+                  <label for="jar_x" class="form-label">Jug X</label>
+                  <input type="range" class="form-range" value="1" min="1" max="100" step="1" id="range_jar_x">
+                  <input type="hidden" name="jar_x" id="jar_x"  value="1" min="1" max="100" step="1">
+                </div>
+              </div>
+
+
+
+            <div class="mt-5 mb-5 row">
+              <div class="col mb-5 d-flex">
+                <div class="position-relative m-auto">
+                  <img  id="jarY" src="/assets/jar_icon.svg"/>
+                  <span id="range_jar_y_icon">1</span>
+                </div>
+              </div>
+              <div class="col-12 col-md-8">
+              <label class="form-label" for="jar_y">Jug Y</label>
+              <input type="range" class="form-range" value="1" min="1" max="100" step="1" id="range_jar_y">
+              <input type="hidden" name="jar_y" id="jar_y"  value="1" min="1" max="100" step="1">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 d-flex justify-content-start">
+                <button class="btn btn-outline-primary control-buttons" data-prev>Previous</button>
+              </div>
+              <div class="col-6 d-flex justify-content-end">
+                <button class="btn btn-primary control-buttons" data-next>Next</button>
+              </div>
+            </div>
+          </section>
+
+
+          <!-- STEP 3: Desire Volume -->
+          <section data-step="Desire Volume">
+            <div class="mb-3">
+              <label class="form-label" for="desire_volume">Desire Volume (max: 100units)</label>
+              <input class="form-control" type="number" name="desire_volume" value="1" min="1" max="100" step="1" required>
+            </div>
+            <div class="row">
+              <div class="col-6 d-flex justify-content-start">
+                <button class="btn btn-outline-primary control-buttons" data-prev>Previous</button>
+              </div>
+              <div class="col-6 d-flex justify-content-end">
+                <button class="btn btn-primary control-buttons" type="submit">Solve</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- STEP 4: Results -->
+          <section data-step="Resultado">
             <div class="row">
               <div class="col-12">
-                <app-jug-validator [capX]="jar_a" [capY]="jar_b" [target]="jar_c" />
+                <app-jug-validator [capX]="jar_x" [capY]="jar_y" [target]="desire_volume" />
               </div>
             </div>
             <div class="row">
-              <div class="col-6 text-left">
-                <button class="btn btn-outline-primary" data-prev>Previous</button>
+              <div class="col-6 d-flex justify-content-start">
+                <button class="btn btn-outline-primary control-buttons" data-prev>Previous</button>
               </div>
             </div>
           </section>

@@ -14,9 +14,9 @@ import {buildStepsBreadcrumb} from '../../utils/wizard-helpers';
 })
 export class Wizard {
 
-  jar_a: number = 0;
-  jar_b: number = 0;
-  jar_c: number = 0;
+  jar_x: number = 1;
+  jar_y: number = 1;
+  desire_volume: number = 1;
 
 
   ngAfterViewInit() {
@@ -24,6 +24,34 @@ export class Wizard {
       console.error('Zangdar no está cargado');
       return;
     }
+
+
+    const rangeInputx = document.getElementById('range_jar_x') as HTMLInputElement;
+    const rangeInputy = document.getElementById('range_jar_y') as HTMLInputElement;
+    const rangeInputx_icon = document.getElementById('range_jar_x_icon') as HTMLInputElement;
+    const rangeInputy_icon = document.getElementById('range_jar_y_icon') as HTMLInputElement;
+    const hiddenInputx = document.getElementById('jar_x') as HTMLInputElement;
+    const hiddenInputy = document.getElementById('jar_y') as HTMLInputElement;
+
+    const jarX = document.getElementById('jarX') as HTMLInputElement;
+    const jarY = document.getElementById('jarY') as HTMLInputElement;
+
+    hiddenInputx.value = rangeInputx.value;
+    hiddenInputy.value = rangeInputy.value;
+
+    rangeInputx.addEventListener('input', function () {
+      hiddenInputx.value = this.value;
+      rangeInputx_icon.innerHTML = this.value;
+      jarX.style.width = `${72 + parseInt(hiddenInputx.value, 10)}px`;
+
+    });
+
+    rangeInputy.addEventListener('input', function () {
+      hiddenInputy.value = this.value;
+      rangeInputy_icon.innerHTML = this.value;
+      jarY.style.width = `${72 + parseInt(hiddenInputy.value, 10)}px`;
+    });
+
 
     const wizard = new (window as any).Zangdar('#wizard', {
       onStepChange: () => {
@@ -33,13 +61,13 @@ export class Wizard {
         e.preventDefault();
         const formElements = (e.target as HTMLFormElement).elements as any;
 
-        const jarAValue = parseInt(formElements.namedItem('jar_a').value, 10);
-        const jarBValue = parseInt(formElements.namedItem('jar_b').value, 10);
-        const jarCValue = parseInt(formElements.namedItem('jar_c').value, 10);
+        const jarXValue = parseInt(formElements.namedItem('jar_x').value, 10);
+        const jarYValue = parseInt(formElements.namedItem('jar_y').value, 10);
+        const DesireVolumeValue = parseInt(formElements.namedItem('desire_volume').value, 10);
 
-        this.jar_a = jarAValue;
-        this.jar_b = jarBValue;
-        this.jar_c = jarCValue;
+        this.jar_x = jarXValue;
+        this.jar_y = jarYValue;
+        this.desire_volume = DesireVolumeValue;
 
         wizard.next?.();
         return false;

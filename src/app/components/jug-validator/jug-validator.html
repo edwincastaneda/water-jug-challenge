@@ -9,13 +9,25 @@
 
     <div *ngFor="let path of solutions; let i = index" class="card mb-3">
       <div class="card-header">
-        Ruta #{{ i + 1 }}
+        Routes #{{ i + 1 }} | Desire Amount ({{target}})
       </div>
-      <ul class="list-group list-group-flush">
-        <li *ngFor="let step of path" class="list-group-item">
-          <strong>[{{ step.x }}, {{ step.y }}]</strong> — {{ step.explanation }}
-        </li>
-      </ul>
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Steps</th>
+          <th scope="col"><img width="20" src="/assets/jar_icon.svg"/>({{capX}}) Jug X</th>
+          <th scope="col"><img width="20" src="/assets/jar_icon.svg"/>({{capY}})Jug Y</th>
+          <th scope="col">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let step of path; let i = index">
+          <th scope="row">{{ (i + 1) - 1 }}</th>
+          <td>{{ step.x }}</td>
+          <td>{{ step.y }}</td>
+          <td>{{ step.explanation }}</td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>
