@@ -1,0 +1,19 @@
+.zandgar__wizard {
+  display: block;
+  height: 100%;
+  position: relative;
+}
+
+.zandgar__wizard .zandgar__step {
+  display: none;
+}
+.zandgar__wizard .zandgar__step.zandgar__step__active {
+  display: block;
+}
+
+.col-img {
+  background: scroll center url('/assets/background.png');
+  background-size: contain;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+}

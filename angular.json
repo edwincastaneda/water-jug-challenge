@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "water-jug": {
+    "water-jug-challenge": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -61,10 +61,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "water-jug:build:production"
+              "buildTarget": "water-jug-challenge:build:production"
             },
             "development": {
-              "buildTarget": "water-jug:build:development"
+              "buildTarget": "water-jug-challenge:build:development"
             }
           },
           "defaultConfiguration": "development"

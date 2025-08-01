@@ -1,0 +1,65 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-lg-5 d-none d-lg-flex col-img">
+    </div>
+    <div class="col-12 col-lg-7 align-self-center">
+      <div class="m-3 m-lg-5">
+
+        <div class="mt-4 mb-4">
+          <h1 class="h3 mb-3">Validador y posibles resultados del reto Water Jug</h1>
+          <p class="lead mb-3 text-left">
+            Este validador te permite ingresar las capacidades de dos jarras (Bucket X y Bucket Y) y el volumen deseado (Amount Z). El sistema evaluará si es posible medir exactamente la cantidad Z usando solo las dos jarras y las operaciones de llenado, vaciado y transferencia.
+          </p>
+        </div>
+
+        <ul id="steps-native" class="nav nav-pills justify-content-center mb-4"></ul>
+
+        <form id="wizard" class="my-2 py-2">
+          <section data-step="1. Entrada">
+            <div class="mb-3">
+              <label class="form-label" for="jar-a">Jarra A</label>
+              <input class="form-control" type="number" name="jar_a" value="1" min="1" step="1" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="jar-b">Jarra B</label>
+              <input class="form-control" type="number" name="jar_b" value="1" min="1" step="1" required>
+            </div>
+            <div class="row">
+              <div class="col-12 text-right">
+                <button class="btn btn-primary" data-next>Siguiente</button>
+              </div>
+            </div>
+          </section>
+
+          <section data-step="2. Medición">
+            <div class="mb-3">
+              <label class="form-label" for="jar-c">Jarra C</label>
+              <input class="form-control" type="number" name="jar_c" value="1" min="1" step="1" required>
+            </div>
+            <div class="row">
+              <div class="col-6 text-left">
+                <button class="btn btn-outline-primary" data-prev>Previous</button>
+              </div>
+              <div class="col-6 text-right">
+                <button class="btn btn-primary" type="submit">Calcular Rutas</button>
+              </div>
+            </div>
+          </section>
+
+          <section data-step="3. Rutas">
+            <div class="row">
+              <div class="col-12">
+                <app-jug-validator [capX]="jar_a" [capY]="jar_b" [target]="jar_c" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 text-left">
+                <button class="btn btn-outline-primary" data-prev>Previous</button>
+              </div>
+            </div>
+          </section>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
