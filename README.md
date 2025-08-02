@@ -115,7 +115,7 @@ Para construir la aplicación y empaquetarla para usarla en un nginx o docker:
 ng build
 ```
 
-Ejecución de test unitarios (se ejecutan con Karma y estan escritas con Jasmine):
+Ejecución de test unitarios (se ejecutan con Karma y están escritas con Jasmine):
 ```bash
 ng test
 ```
