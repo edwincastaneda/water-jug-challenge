@@ -1,33 +1,20 @@
-# Nombre de la acción que verás en GitHub
 name: Angular CI
-
-# Define los eventos que dispararán esta acción
-# En este caso, cada vez que se haga un 'push' a la rama 'master'
 on:
   push:
     branches:
-      - master
+      - main
 
-# Define los trabajos (jobs) que se ejecutarán
 jobs:
-  # Nombre del trabajo
   build-and-test:
-    # El entorno donde se ejecutará el trabajo
     runs-on: ubuntu-latest
-
-    # Pasos del trabajo
     steps:
-      # 1. Checkout del código: Clona el repositorio en el entorno de GitHub Actions
       - name: Checkout code
         uses: actions/checkout@v4
-
-      # 2. Configura Node.js: Instala la versión de Node que necesitas para tu proyecto
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20.x # Puedes cambiar la versión de Node si tu proyecto lo requiere
+          node-version: 20.x
 
-      # 3. Cache de dependencias de Node: Esto acelera las ejecuciones futuras
       - name: Cache node modules
         uses: actions/cache@v4
         with:
@@ -36,14 +23,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      # 4. Instala las dependencias del proyecto
       - name: Install dependencies
         run: npm ci
 
-      # 5. Ejecuta las pruebas unitarias con Karma y Jasmine
       - name: Run unit tests
         run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
 
-      # 6. Construye el proyecto para producción
       - name: Build project
         run: npm run build -- --configuration=production
