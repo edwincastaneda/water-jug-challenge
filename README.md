@@ -123,3 +123,7 @@ ng test
 # Integración Continua
 
 ![img.png](/public/assets/img2.png)
+
+# Conventional Commits Standard
+
+![img.png](/public/assets/img3.png)
