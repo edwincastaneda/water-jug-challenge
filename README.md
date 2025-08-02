@@ -1,5 +1,5 @@
 # Water Jug (Challenge)
-- Por Edwin Castañeda
+- Por Edwin Castañeda [winedcasta@hotmail.com](mailto:winedcasta@hotmail.com)
 - Para: Chicks Gold
 - Fecha: Sábado 2 de agosto de 2025
 
@@ -13,7 +13,7 @@
 # Arquitectura
 
 ## Sistema de diseño
-Utilizamos Bootstrap (No CDN) porque quise cambiar un poco el estilo stack que trae la library, por esta razón genere una carpeta scss que hospeda toda la personalización de bootstrap.
+Utilizamos Bootstrap (No CDN) porque quise cambiar un poco el estilo stack que trae la librería, por esta razón genere una carpeta scss que hospeda toda la personalización de bootstrap.
 Es una buena forma de estructura toda la personalización a nivel de diseño.
 
 ### /Base
