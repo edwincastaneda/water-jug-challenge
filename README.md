@@ -119,3 +119,7 @@ Ejecución de test unitarios (se ejecutan con Karma y estan escritas con Jasmine
 ```bash
 ng test
 ```
+
+# Integración Continua
+
+![img.png](/public/assets/img2.png)
