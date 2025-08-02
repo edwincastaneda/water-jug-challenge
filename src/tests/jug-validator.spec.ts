@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { JugValidator } from './jug-validator';
+import {JugValidator} from '../app/components/jug-validator/jug-validator';
 
 describe('JugValidator', () => {
   let component: JugValidator;

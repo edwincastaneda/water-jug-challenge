@@ -1,3 +1,12 @@
+# Water Jug (Challenge)
+
+
+## Información de las herramientas
+
+- Framework: Angular 20.1.3
+- Node Version: 20.19.4
+
+
 # WaterJugChallenge
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.4.

@@ -14,9 +14,9 @@
 
 
           <!-- STEP: 1 Introduction -->
-          <section data-step="Instrucciones">
+          <section data-step="Instructions">
             <p class="lead mb-3 text-left">
-              This solver allows you to enter the capacities of two jugs (we'll call them Jug X and Jug Y) and the desired volume. The webapp will evaluate whether it's possible to measure exactly the amount Z using only the two jugs and the operations of filling, emptying, and transferring.
+              This solver allows you to enter the capacities of two jugs (we'll call them Jug X and Jug Y) and the desired volume. The webapp will evaluate whether it's possible to measure exactly the amount Z (desire volume) using only the two jugs and the operations of filling, emptying, and transferring.
             </p>
             <div class="row">
               <div class="col-6 d-flex justify-content-start">
@@ -89,7 +89,7 @@
           </section>
 
           <!-- STEP 4: Results -->
-          <section data-step="Resultado">
+          <section data-step="Results">
             <div class="row">
               <div class="col-12">
                 <app-jug-validator [capX]="jar_x" [capY]="jar_y" [target]="desire_volume" />

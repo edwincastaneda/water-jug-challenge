@@ -46,7 +46,7 @@ export function solveWaterJugAllPaths(capX: number, capY: number, target: number
     }
   }
 
-  return allSolutions.length > 0 ? allSolutions : 'No solution';
+  return allSolutions.length > 0 ? allSolutions : '🚫 No solution';
 }
 
 function gcd(a: number, b: number): number {
