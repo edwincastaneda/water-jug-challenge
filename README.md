@@ -12,6 +12,8 @@
 
 # Arquitectura
 
+![img.png](/public/assets/img.png)
+
 ## Sistema de diseño
 Utilizamos Bootstrap (No CDN) porque quise cambiar un poco el estilo stack que trae la librería, por esta razón genere una carpeta scss que hospeda toda la personalización de bootstrap.
 Es una buena forma de estructura toda la personalización a nivel de diseño.
@@ -32,6 +34,12 @@ globals.
 
 ### /Interfaces
 - Water Jug State: permite definir una estructura para almacenar una lista para los pasos registrados (estados).
+
+### /Tests
+- Tests de Componentes: jug-validator.spec.ts y wizard.spec.ts (Solo validan que se construyan los componentes)
+- Test de funciones: water-jug-solver.spec.ts y wizard-helpers.spec.ts
+
+Estos test se pueden validar en el pipeline de integración en Github o bien pueden ejecutar ng test (abajo se menciona en la parte de como ejecutarlo).
 
 # Funciones Matemáticas
 
@@ -107,7 +115,7 @@ Para construir la aplicación y empaquetarla para usarla en un nginx o docker:
 ng build
 ```
 
-Ejecución de test unitarios (se ejecutan con Karma y estan escritas con Jasmine).
+Ejecución de test unitarios (se ejecutan con Karma y estan escritas con Jasmine):
 ```bash
 ng test
 ```
